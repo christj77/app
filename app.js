@@ -1,8 +1,8 @@
 const express = require("express");
 //const https = require("https");
 const axios = require("axios");
-const API_KEY = "90c98836fd653fffdc75eec71574d690";
-const CITY_NAME = "Montreal";
+//const API_KEY = "90c98836fd653fffdc75eec71574d690";
+//const CITY_NAME = "Montreal";
 
 // express app
 const app = express();
@@ -43,23 +43,23 @@ app.get("/", async (req, res) => {
   //     console.log(err);
   //   });
 
-  let tempInCelsius = 0;
+  // let tempInCelsius = 0;
 
-  await axios
-    .get(
-      `https://api.openweathermap.org/data/2.5/weather?q=${CITY_NAME}&appid=${API_KEY}`
-    )
-    .then((res) => {
-      const tempInKelvin = res.data["main"]["temp"];
-      tempInCelsius = tempInKelvin - 273.15;
-      tempInCelsius = Math.round(tempInCelsius);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+  // await axios
+  //   .get(
+  //     `https://api.openweathermap.org/data/2.5/weather?q=${CITY_NAME}&appid=${API_KEY}`
+  //   )
+  //   .then((res) => {
+  //     const tempInKelvin = res.data["main"]["temp"];
+  //     tempInCelsius = tempInKelvin - 273.15;
+  //     tempInCelsius = Math.round(tempInCelsius);
+  //   })
+  //   .catch((err) => {
+  //     console.log(err);
+  //   });
 
-  console.log(tempInCelsius);
-  res.render("index", { title: "Homepage", blogs, tempInCelsius, CITY_NAME });
+ // console.log(tempInCelsius);
+  res.render("index", { title: "Homepage", blogs    });
 });
 
 app.get("/about", (req, res) => {
